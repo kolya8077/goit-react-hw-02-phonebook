@@ -1,4 +1,5 @@
 import { Ul, Span, Item } from 'components/ContactList/contactList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ events, onDeliteItem }) => {
   return (
@@ -15,4 +16,15 @@ export const ContactList = ({ events, onDeliteItem }) => {
       ))}
     </Ul>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDeliteItem: PropTypes.func.isRequired,
 };
