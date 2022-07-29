@@ -25,10 +25,15 @@ class App extends Component {
 
     const arr = this.state.contacts;
 
-    if (arr.find(arr => arr.number === data.number)) return alert(`${data.name}is already in contacts.`);
+    if (arr.find(arr => arr.number === data.number))
+      return alert(`${data.number} is already in contacts.`);
 
-        if (arr.find(arr => arr.name === data.name))
-          return alert(`${data.name}is already in contacts.`);
+    if (
+      arr.find(
+        arr => arr.name.toLocaleLowerCase() === data.name.toLocaleLowerCase()
+      )
+    )
+      return alert(`${data.name} is already in contacts.`);
 
     this.setState(({ contacts }) => ({
       contacts: [...contacts, addContact],
