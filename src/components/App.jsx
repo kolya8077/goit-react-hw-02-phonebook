@@ -27,6 +27,9 @@ class App extends Component {
 
     if (arr.find(arr => arr.number === data.number)) return alert(`${data.name}is already in contacts.`);
 
+        if (arr.find(arr => arr.name === data.name))
+          return alert(`${data.name}is already in contacts.`);
+
     this.setState(({ contacts }) => ({
       contacts: [...contacts, addContact],
     }));
